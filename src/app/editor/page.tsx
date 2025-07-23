@@ -39,7 +39,7 @@ export default function EditorPage() {
   const [isPublishFlow, setIsPublishFlow] = useState(false);
   const [postId, setPostId] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [seoAnalysis, setSeoAnalysis] = useState<any>(null);
+  const [seoAnalysis, setSeoAnalysis] = useState<{score: number; suggestions: string[]} | null>(null);
 
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -666,7 +666,7 @@ export default function EditorPage() {
                   content={content}
                   excerpt=""
                   tags={tags.split(',').map(tag => tag.trim()).filter(Boolean)}
-                  onAnalysisUpdate={setSeoAnalysis}
+                  onAnalysisUpdate={(analysis) => setSeoAnalysis({score: analysis.seoScore, suggestions: analysis.suggestions.map(s => s.message)})}
                 />
               </div>
             </div>
