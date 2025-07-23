@@ -264,3 +264,6 @@ For support, email support@blogcraft-ai.com or join our Discord community.
 ---
 
 **Built with ❤️ by the BlogCraft AI Team**
+## 🌐 **Live Application**
+- **🎨 Frontend (User Interface)**: https://ai-blog-git-main-abhisheks-projects-18e7d0a2.vercel.app
+- **⚙️ Backend API**: https://ai-blog-fnsc.onrender.com/api/health
