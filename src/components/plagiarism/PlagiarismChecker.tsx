@@ -93,7 +93,7 @@ export default function PlagiarismChecker({ content, title }: PlagiarismCheckerP
     }
   };
 
-  const convertAIResultToFormat = (aiData: any, content: string): PlagiarismResult => {
+  const convertAIResultToFormat = (aiData: {overallScore?: number; suspiciousSentences?: Array<{similarity?: number; text?: string; sources?: string[]}>}, content: string): PlagiarismResult => {
     const plainText = content.replace(/<[^>]*>/g, '');
     const wordCount = plainText.split(/\s+/).filter(word => word.length > 0).length;
 
@@ -106,7 +106,7 @@ export default function PlagiarismChecker({ content, title }: PlagiarismCheckerP
     else if (overallScore > 10) status = 'moderate';
 
     // Convert suspicious sentences to sources
-    const sources = (aiData.suspiciousSentences || []).map((sentence: any, index: number) => ({
+    const sources = (aiData.suspiciousSentences || []).map((sentence, index: number) => ({
       url: sentence.sources?.[0] || `https://example-source-${index + 1}.com`,
       title: `Similar Content Found #${index + 1}`,
       similarity: Math.round((sentence.similarity || 0.8) * 100),
