@@ -37,7 +37,7 @@ export default function DashboardPage() {
     console.log('Generated content:', content);
   };
 
-  const handleSEOSuggestions = (suggestions: any) => {
+  const handleSEOSuggestions = (suggestions: {score: number; suggestions: string[]}) => {
     console.log('SEO suggestions:', suggestions);
   };
 
