@@ -18,7 +18,7 @@ import {
 
 interface AIWritingAssistantProps {
   onContentGenerated?: (content: string) => void;
-  onSEOSuggestions?: (suggestions: any) => void;
+  onSEOSuggestions?: (suggestions: {score: number; suggestions: string[]}) => void;
 }
 
 export default function AIWritingAssistant({ 
