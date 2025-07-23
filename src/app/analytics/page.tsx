@@ -33,7 +33,13 @@ import {
 
 export default function AnalyticsPage() {
   const [timeRange, setTimeRange] = useState('30d');
-  const [analyticsData, setAnalyticsData] = useState<any>(null);
+  const [analyticsData, setAnalyticsData] = useState<{
+    overview: Array<{name: string; value: number; change: string; color: string}>;
+    topPosts: Array<{title: string; views: number; likes: number}>;
+    deviceBreakdown: Array<{name: string; value: number}>;
+    dailyViews: Array<{date: string; views: number; visitors: number}>;
+    trafficSources: Array<{name: string; value: number; fill: string}>;
+  } | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   // Mock data - replace with real API calls
