@@ -10,14 +10,6 @@ const nextConfig: NextConfig = {
   },
   experimental: {
     serverComponentsExternalPackages: ['mongoose'],
-    turbo: {
-      rules: {
-        '*.svg': {
-          loaders: ['@svgr/webpack'],
-          as: '*.js',
-        },
-      },
-    },
   },
   images: {
     domains: ['res.cloudinary.com', 'images.unsplash.com'],
@@ -29,11 +21,8 @@ const nextConfig: NextConfig = {
   swcMinify: true,
   // Disable source maps for faster builds
   productionBrowserSourceMaps: false,
-  // Disable static optimization warnings
-  onDemandEntries: {
-    maxInactiveAge: 25 * 1000,
-    pagesBufferLength: 2,
-  },
+  // Skip static generation for dynamic pages
+  output: 'standalone',
 };
 
 export default nextConfig;
