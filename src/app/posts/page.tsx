@@ -141,7 +141,7 @@ export default function PostsPage() {
     }
   };
 
-  const handleSharePost = (post: any) => {
+  const handleSharePost = (post: {_id: string; title: string; slug?: string; status: string}) => {
     const shareUrl = post.status === 'published'
       ? `${window.location.origin}/posts/${post.slug}`
       : `${window.location.origin}/posts/preview/${post._id}`;
