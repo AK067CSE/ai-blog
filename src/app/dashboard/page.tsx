@@ -19,7 +19,7 @@ import {
 export default function DashboardPage() {
   const [showAIAssistant, setShowAIAssistant] = useState(false);
   const [generatedContent, setGeneratedContent] = useState('');
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState<{name: string; email: string; firstName?: string} | null>(null);
   const router = useRouter();
 
   // Check authentication on component mount
